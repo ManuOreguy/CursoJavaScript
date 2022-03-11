@@ -7,7 +7,12 @@
   text-align: center;
 }
 
-.divRoot {
+.divLogin {
+  align-items: center;
+  text-align: center;
+}
+
+.divMenu {
   align-items: center;
   text-align: center;
 }
