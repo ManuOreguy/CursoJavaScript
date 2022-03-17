@@ -46,7 +46,7 @@ botonMenu.onclick = event => {
     productos.forEach( (producto) => {    
         const listarProductos = document.createElement('li')
         listarProductos.innerText = producto.nombre
-        
+
         menu.append(listarProductos)
     })
 }
