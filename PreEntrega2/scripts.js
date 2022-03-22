@@ -37,19 +37,32 @@ if (localStorage.getItem("productos")) {
 }
 }
 
-
-console.log(prod);
-
-
-// const mainProductos = document.getElementById('mainProductos')
+const sectionProductos = document.getElementById('sectionProductos')
 
 // stockProductos.forEach((producto) => {
-//   const divNuevo = document.createElement('div')
-//   divNuevo.classList.add('producto')
-//   divNuevo.innerHTML= `
-//     <h1>${producto.nombre}</h1>
-//     <p>${producto.precio}</p>   
-//     <button id="agregar${producto.id}"> Agregar </button>
-//   `
-//   mainProductos.appendChild(divNuevo)
+  const divNuevo = document.createElement('div')
+  divNuevo.classList.add('prod')
+  divNuevo.innerHTML= `
+    <h1>${prod.nombre}</h1>
+    <p>${prod.precio}</p>   
+    <button id="btnAgregar"> Agregar </button>
+  `
+  sectionProductos.appendChild(divNuevo)
 // })
+
+const btnAgregar = document.getElementById('btnAgregar')
+
+btnAgregar.addEventListener('click',() =>{
+  
+})
+
+// const divCarrito = document.getElementById('divCarrito')
+
+// const divCarritoNuevo = document.createElement('div')
+// divCarritoNuevo.classList.add('prod')
+// divCarritoNuevo.innerHTML= `
+//     <h1>${prod.nombre}</h1>
+//     <p>${prod.precio}</p>   
+//     <button id="agregar${prod.id}"> Agregar </button>
+//   `
+//   divCarrito.appendChild(divCarritoNuevo)
