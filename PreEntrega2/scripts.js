@@ -28,15 +28,17 @@ console.log('PreEntrega 2');
 
 // guardarLocalStorage(productos);
 
-obtenerProductos()
+let prod = obtenerProductos()
 
 function obtenerProductos (){
 if (localStorage.getItem("productos")) {
   const producto = JSON.parse(localStorage.getItem("productos"));
+  return producto
 }
 }
 
-console.log(productos);
+
+console.log(prod);
 
 
 // const mainProductos = document.getElementById('mainProductos')
