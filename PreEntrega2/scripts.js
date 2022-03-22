@@ -44,25 +44,26 @@ const sectionProductos = document.getElementById('sectionProductos')
   divNuevo.classList.add('prod')
   divNuevo.innerHTML= `
     <h1>${prod.nombre}</h1>
-    <p>${prod.precio}</p>   
-    <button id="btnAgregar"> Agregar </button>
+    <p>$${prod.precio}</p>   
+    <button id="btnAgregar"> Agregar al Carrito </button>
   `
   sectionProductos.appendChild(divNuevo)
 // })
 
 const btnAgregar = document.getElementById('btnAgregar')
 
+
+//La accion del boton se refleja en el localStorage, todavia no se ve en pantalla
 btnAgregar.addEventListener('click',() =>{
-  
+  localStorage.setItem( "carrito", JSON.stringify(prod))
+
 })
 
-// const divCarrito = document.getElementById('divCarrito')
+const btnBorrar = document.getElementById('btnBorrar')
+btnBorrar.addEventListener('click',() => {
+  console.log('apreto boton');
+  localStorage.removeItem("carrito")
+})
 
-// const divCarritoNuevo = document.createElement('div')
-// divCarritoNuevo.classList.add('prod')
-// divCarritoNuevo.innerHTML= `
-//     <h1>${prod.nombre}</h1>
-//     <p>${prod.precio}</p>   
-//     <button id="agregar${prod.id}"> Agregar </button>
-//   `
-//   divCarrito.appendChild(divCarritoNuevo)
+
+
