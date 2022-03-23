@@ -1,69 +1,51 @@
-//array de usuarios para login localstorage
-// let login = [
-//     {nombre: 'Manu', contraseña: '123'},
-//     {nombre: 'Test', contraseña: '1234'}
-// ]
-// let login = {nombre: 'Manu', contraseña: '123'}
+//array de objetos para cada producto
+const productos = [
+  { id: 1, nombre: "Pizza", precio: 500, inCart: 0,estado: true },
+  { id: 2, nombre: "Nuggets", precio: 50, inCart: 0, estado: true },
+  { id: 3, nombre: "Empanadas", precio: 100, inCart: 0, estado: true },
+  { id: 4, nombre: "Franui", precio: 400, inCart: 0, estado: true }
+];
 
-// //array de objetos para cada producto
-// let productos = [
-//   { id: 1, nombre: "Pizza", precio: 500, estado: true },
-//   { id: 2, nombre: "Nuggets", precio: 50, estado: true },
-//   { id: 3, nombre: "Empanadas", precio: 100, estado: true },
-//   { id: 4, nombre: "Franui", precio: 400, estado: true },
-// ];
 
-let productos = {id: 1, nombre: "Pizza", precio: 500, estado: true }
 
-localStorage.setItem( "productos", JSON.stringify(productos))
+let carts = document.querySelectorAll('.add-cart');
 
-console.log('PreEntrega 2');
-
-// function guardarLocalStorage (productos){
-
-//   productos.forEach(element => {
-//         localStorage.setItem( element, JSON.stringify(productos))
-//     });
-// }
-
-// guardarLocalStorage(productos);
-
-let prod = obtenerProductos()
-
-function obtenerProductos (){
-if (localStorage.getItem("productos")) {
-  const producto = JSON.parse(localStorage.getItem("productos"));
-  return producto
-}
+for(i=0; i < carts.length; i++){
+    carts[i].addEventListener('click', () => {
+    cartNumbers(productos[i]);
+  })
 }
 
-const sectionProductos = document.getElementById('sectionProductos')
+function cartNumbers(product) {
+  console.log("Producto es ", product);
 
-// stockProductos.forEach((producto) => {
-  const divNuevo = document.createElement('div')
-  divNuevo.classList.add('prod')
-  divNuevo.innerHTML= `
-    <h1>${prod.nombre}</h1>
-    <p>$${prod.precio}</p>   
-    <button id="btnAgregar"> Agregar al Carrito </button>
-  `
-  sectionProductos.appendChild(divNuevo)
-// })
+  let productNumbers = localStorage.getItem('cartNumbers');
 
-const btnAgregar = document.getElementById('btnAgregar')
+  productNumbers = parseInt(productNumbers);
 
+  if(productNumbers){
+    localStorage.setItem('cartNumbers', productNumbers + 1)
+    document.querySelector('.cart span').textContent = productNumbers + 1;
+  }else{
+    localStorage.setItem('cartNumbers', 1)
+    document.querySelector('.cart span').textContent = 1;
+  }
 
-//La accion del boton se refleja en el localStorage, todavia no se ve en pantalla
-btnAgregar.addEventListener('click',() =>{
-  localStorage.setItem( "carrito", JSON.stringify(prod))
+  setItems(product);
+}
 
-})
+function setItems (product){
+  console.log("Adentro del carrito",product);
 
-const btnBorrar = document.getElementById('btnBorrar')
-btnBorrar.addEventListener('click',() => {
-  console.log('apreto boton');
-  localStorage.removeItem("carrito")
-})
+}
 
+function onLoadCartNumbers(){
+  let productNumbers = localStorage.getItem('cartNumbers');
 
+  if(productNumbers){
+    document.querySelector('.cart span').textContent = productNumbers;
+  }
+}
 
+//No pierdo la cant del carrito en el reload de la pagina
+onLoadCartNumbers();

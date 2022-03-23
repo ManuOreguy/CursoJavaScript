@@ -13,27 +13,48 @@
       <div class="wrapper">
         <div class="logo"> Sevuchitas </div>
           <nav class="nav">
-            <a href="#">Inicio</a>
-            <a href="#">Productos</a>
+            <a href="index.html">Inicio</a>
             <a href="#">Contacto</a>
+            <a class="cart" href="carrito.html">
+              <ion-icon name="cart-outline"></ion-icon> Carrito <span>0</span>
+            </a>
           </nav>
       </div>
     </header>
     
 
-  <main class="sectionProductos wrapper">
-    Los botones solo afectan el localStorage
-    <section id="sectionProductos"></section>
-    <section id="sectionCarrito">
-      <div style="padding-top: 20px">
-        <button id="btnBorrar">Borrar Carrito</button>
-      </div>
-      <div id="divCarrito">
+  <main>
 
+    <div class="container">
+      <div class="divProducto">
+        <img class="image" src="images/pizza.jpg" alt="pizza1">
+        <h3>Pizza</h1>
+        <p>$500</p>   
+        <a class="add-cart cart1" href="#">Add to Cart</a>
       </div>
-    </section>
+      <div class="divProducto">
+        <img class="image" src="images/empanadas.jpg" alt="empanadas1">
+        <h3>Empanadas</h1>
+        <p>$100</p>   
+        <a class="add-cart cart2" href="#">Add to Cart</a>
+      </div>
+      <div class="divProducto">
+        <img class="image" src="images/nuggets.jpg" alt="nuggets1">
+        <h3>Nuggets</h1>
+        <p>$50</p>   
+        <a class="add-cart cart3" href="#">Add to Cart</a>
+      </div>
+      <div class="divProducto">
+        <img class="image" src="images/franui.jpg" alt="franui1">
+        <h3>Franui</h1>
+        <p>$450</p>   
+        <a class="add-cart cart4" href="#">Add to Cart</a>
+      </div>
+    </div>
   </main>
 
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="scripts.js"></script>
   </body>
 </html>
