@@ -1,8 +1,8 @@
 //array de objetos para cada producto
 const productos = [
   { id: 1, nombre: "Pizza", precio: 500, inCart: 0,estado: true },
-  { id: 2, nombre: "Nuggets", precio: 50, inCart: 0, estado: true },
-  { id: 3, nombre: "Empanadas", precio: 100, inCart: 0, estado: true },
+  { id: 2, nombre: "Empanadas", precio: 100, inCart: 0, estado: true },
+  { id: 3, nombre: "Nuggets", precio: 50, inCart: 0, estado: true },
   { id: 4, nombre: "Franui", precio: 400, inCart: 0, estado: true }
 ];
 
@@ -10,15 +10,14 @@ const productos = [
 
 let carts = document.querySelectorAll('.add-cart');
 
-for(i=0; i < carts.length; i++){
+for(let i=0 ; i < carts.length; i++){
     carts[i].addEventListener('click', () => {
+
     cartNumbers(productos[i]);
   })
 }
 
 function cartNumbers(product) {
-  console.log("Producto es ", product);
-
   let productNumbers = localStorage.getItem('cartNumbers');
 
   productNumbers = parseInt(productNumbers);
@@ -35,7 +34,25 @@ function cartNumbers(product) {
 }
 
 function setItems (product){
-  console.log("Adentro del carrito",product);
+  let cartItems = localStorage.getItem('productosInCart');
+  cartItems = JSON.parse(cartItems);
+
+  if(cartItems != null){
+    if(cartItems[product.nombre] != undefined){
+      cartItems = {
+        ...cartItems,
+        [product.nombre]: product
+      }
+    }
+    cartItems[product.nombre].inCart += 1;
+  } else{
+    product.inCart = 1;
+    cartItems = {
+      [product.nombre]: product
+    }
+  }
+
+  localStorage.setItem("productsInCart", JSON.stringify(cartItems));
 
 }
 
