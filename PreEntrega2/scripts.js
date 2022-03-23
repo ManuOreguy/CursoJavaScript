@@ -6,7 +6,7 @@ const productos = [
   { id: 4, nombre: "Franui", precio: 400, inCart: 0, estado: true }
 ];
 
-
+console.log("PreEntrega2");
 
 let carts = document.querySelectorAll('.add-cart');
 
