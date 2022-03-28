@@ -76,5 +76,42 @@ function onLoadCartNumbers(){
   }
 }
 
+function mostrarCarrito(){
+  let cartItems = localStorage.getItem("productsInCart")
+  cartItems = JSON.parse(cartItems);
+  let productContainer = document.querySelector(".products")
+  let totalCarrito = localStorage.getItem('totalCost');
+
+  if(cartItems && productContainer) {
+    productContainer.innerHTML= '' 
+    Object.values(cartItems).map(item => {
+      productContainer.innerHTML += `
+      <div class="product">
+        <ion-icon name="trash-outline"></ion-icon>
+        <span>${item.nombre}</span>
+      </div>
+      <div class="precio">$${item.precio},00</div>
+      <div class="cantidad">
+        <ion-icon class="decreaseArrow" name="caret-back-circle-outline"></ion-icon>
+        <span>${item.inCart}</span>
+        <ion-icon class="increaseArrow" name="caret-forward-circle-outline"></ion-icon>
+      </div>
+      <div class="total"> $${item.inCart * item.precio},00 </div>
+      `
+    })
+  }
+
+  productContainer.innerHTML += `
+    <div class="carritoTotalContainer">
+      <h4 class="carritoTotalTitle">
+        Total Carrito
+      </h4>
+      <h4 class="totalCarrito">$${totalCarrito},00</h4>
+    </div>
+  `
+}
+
+//Corre la funcion siempre que inicia la pagina
+mostrarCarrito();
 //No pierdo la cant del carrito en el reload de la pagina
 onLoadCartNumbers();
