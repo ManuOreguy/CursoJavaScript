@@ -106,14 +106,21 @@ header nav a:hover{
 
 .productHeader{
   width: 100%;
-  max-width: 650px;
+  max-width: 500px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   border-bottom: 4px solid lightgray;
-  margin: 0 auto;
+  /* margin: 0 auto; */
 }
 
-.tituloProducto {
+.generic-product-title{
+  width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.productTitle {
   width: 45%;
 }
 
@@ -139,12 +146,16 @@ header nav a:hover{
 }
 
 .product{
-  width: 45%;
+  width: 500px;
   border-bottom: 1px solid lightgray;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 10px 0;
+  justify-content: space-between;
+}
+
+.productSpan{
+  width: 120px;
+  display: flex;
+  justify-content: center;
 }
 
 /*  Estilos total carrito  */

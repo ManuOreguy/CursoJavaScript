@@ -87,16 +87,17 @@ function mostrarCarrito(){
     Object.values(cartItems).map(item => {
       productContainer.innerHTML += `
       <div class="product">
-        <ion-icon name="trash-outline"></ion-icon>
-        <span>${item.nombre}</span>
-      </div>
-      <div class="precio">$${item.precio},00</div>
-      <div class="cantidad">
+        <ion-icon class="" name="trash-outline"></ion-icon>
+        <span class="productSpan">${item.nombre}</span>
+      
+      <div class="price">$${item.precio},00</div>
+      <div class="quantity">
         <ion-icon class="decreaseArrow" name="caret-back-circle-outline"></ion-icon>
         <span>${item.inCart}</span>
         <ion-icon class="increaseArrow" name="caret-forward-circle-outline"></ion-icon>
       </div>
       <div class="total"> $${item.inCart * item.precio},00 </div>
+      </div>
       `
     })
   }
