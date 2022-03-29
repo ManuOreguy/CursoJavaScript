@@ -121,29 +121,12 @@ header nav a:hover{
 }
 
 .productTitle {
-  width: 45%;
+  width: 130px;
+  display: flex;
+  justify-content: center;
 }
 
-.price{
-  width: 15%;
-  border-bottom: 1px solid lightgray;
-  display: flex;
-  align-items: center;
-}
 
-.quantity{
-  width: 30%;
-  border-bottom: 1px solid lightgray;
-  display: flex;
-  align-items: center;
-}
-
-.total{
-  width: 10%;
-  border-bottom: 1px solid lightgray;
-  display: flex;
-  align-items: center;
-}
 
 .product{
   width: 500px;
@@ -161,9 +144,22 @@ header nav a:hover{
 /*  Estilos total carrito  */
 
 .carritoTotalTitle{
-  width: 30%;
+  display: flex;
+  justify-content: flex-end;
 }
 
-.carritoTotal{
-  width: 10%;
+.totalCarrito{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.product-delete-icon{
+  position:absolute;
+  color: red;
+  cursor: pointer;
+}
+
+.carritoTotalContainer{
+  width: 100%;
+  max-width: 500px;
 }

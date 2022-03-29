@@ -87,7 +87,7 @@ function mostrarCarrito(){
     Object.values(cartItems).map(item => {
       productContainer.innerHTML += `
       <div class="product">
-        <ion-icon class="" name="trash-outline"></ion-icon>
+        <ion-icon class="product-delete-icon" name="trash-outline"></ion-icon>
         <span class="productSpan">${item.nombre}</span>
       
       <div class="price">$${item.precio},00</div>
