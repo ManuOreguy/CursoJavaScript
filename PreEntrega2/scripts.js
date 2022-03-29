@@ -1,5 +1,3 @@
-//Agrego libreria SweetAlert2
-{/* <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> */}
 
 //array de objetos para cada producto
 const productos = [
@@ -19,11 +17,6 @@ for(let i=0 ; i < carts.length; i++){
     carts[i].addEventListener('click', () => {
     cartNumbers(productos[i]);
     totalCost(productos[i])
-    Swal.fire(
-      'Producto agregado!',
-      '',
-      'success'
-    )
   })
 }
 
