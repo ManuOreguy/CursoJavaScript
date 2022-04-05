@@ -1,21 +1,20 @@
-//Agrego libreria SweetAlert2
-{/* <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> */}
-
 //array de objetos para cada producto
-const productos = [
-  { id: 1, nombre: "Pizza", precio: 500, inCart: 0,estado: true },
-  { id: 2, nombre: "Empanadas", precio: 100, inCart: 0, estado: true },
-  { id: 3, nombre: "Nuggets", precio: 50, inCart: 0, estado: true },
-  { id: 4, nombre: "Franui", precio: 400, inCart: 0, estado: true }
-];
+// const productos = [
+//   { id: 1, nombre: "Pizza", precio: 500, inCart: 0,estado: true },
+//   { id: 2, nombre: "Empanadas", precio: 100, inCart: 0, estado: true },
+//   { id: 3, nombre: "Nuggets", precio: 50, inCart: 0, estado: true },
+//   { id: 4, nombre: "Franui", precio: 400, inCart: 0, estado: true }
+// ];
 
-
-
-console.log("PreEntrega2");
+const productos = [];
 
 let carts = document.querySelectorAll('.add-cart');
 
-for(let i=0 ; i < carts.length; i++){
+fetch('./productos.json')
+.then(resp=>resp.json())
+.then((productos) => {
+
+  for(let i=0 ; i < carts.length; i++){
     carts[i].addEventListener('click', () => {
     cartNumbers(productos[i]);
     totalCost(productos[i])
@@ -26,6 +25,15 @@ for(let i=0 ; i < carts.length; i++){
     )
   })
 }
+
+})
+
+// console.log(productos);
+
+console.log("PreEntrega2");
+
+
+
 
 function cartNumbers(product) {
   let productNumbers = localStorage.getItem('cartNumbers');
