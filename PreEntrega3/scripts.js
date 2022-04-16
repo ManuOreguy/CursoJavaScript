@@ -28,12 +28,6 @@ fetch('./productos.json')
 
 })
 
-// console.log(productos);
-
-console.log("PreEntrega2");
-
-
-
 
 function cartNumbers(product) {
   let productNumbers = localStorage.getItem('cartNumbers');
@@ -130,7 +124,24 @@ function mostrarCarrito(){
   `
 }
 
-//Corre la funcion siempre que inicia la pagina
-mostrarCarrito();
+function showCart(){
+  onLoadCartNumbers();
+
+  
+}
+
+showCart();
+// function removeItem (name){
+//   for(let i=0; i<carts.length;i+=1){
+//     if(carts.splice(i,1){
+      
+//       return
+//     }
+//   }
+// }
+
 //No pierdo la cant del carrito en el reload de la pagina
 onLoadCartNumbers();
+//Corre la funcion siempre que inicia la pagina
+mostrarCarrito();
+
