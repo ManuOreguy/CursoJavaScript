@@ -6,7 +6,8 @@
 //   { id: 4, nombre: "Franui", precio: 400, inCart: 0, estado: true }
 // ];
 
-const productos = [];
+let productos = [];
+let carrito = [];
 
 let carts = document.querySelectorAll('.add-cart');
 
@@ -124,21 +125,6 @@ function mostrarCarrito(){
   `
 }
 
-function showCart(){
-  onLoadCartNumbers();
-
-  
-}
-
-showCart();
-// function removeItem (name){
-//   for(let i=0; i<carts.length;i+=1){
-//     if(carts.splice(i,1){
-      
-//       return
-//     }
-//   }
-// }
 
 //No pierdo la cant del carrito en el reload de la pagina
 onLoadCartNumbers();
