@@ -86,7 +86,13 @@ header nav a:hover{
   justify-content: space-around;
   margin: 0 auto;
   margin-top: 50px;
+}
 
+.cartProducts {
+  max-width: 650px;
+  justify-content: space-around;
+  margin: 0 auto;
+  margin-top: 50px;
 }
 
 .productos ion-icon {

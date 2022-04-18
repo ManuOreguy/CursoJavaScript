@@ -2,7 +2,7 @@ let products = [];
 let cart = [];
 
 const productsContainer = document.querySelector(".prodContainer");
-const productsInCart = document.querySelector(".products");
+const productsInCart = document.querySelector(".cartProducts");
 
 //Primeros pasos
 
@@ -23,6 +23,8 @@ const checkoutCart = () => {
   cartItems = localStorage.getItem("cart");
   cartItems = JSON.parse(cartItems);
 };
+
+checkoutCart();
 
 const renderProducts = (products) => {
   productsContainer.innerHTML = "";
@@ -45,39 +47,86 @@ const renderProducts = (products) => {
 };
 
 const addToCart = (id) => {
-  if(cart.some((item)=> item.id === id)){
-    alert("Product already in cart")
-  }else{
-    const item = products.find((product) => product.id === id);
-    item.inCart = 1;
-    cart.push({
-      ...item
-    })
+  //Me fijo si el articulo esta en el carrito
+    if(cart.some((item)=> item.id === id)){
+      alert("Product already in cart")
+    }else{
+      const item = products.find((product) => product.id === id);
+      
+      
 
-    console.log(cart);
+      cart.push({
+        ...item,
+        inCart: 1,
+      })
+    } 
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    updateCart();
   }
-}
 
-const totalProduct = (id) => {
+  // const productosEnCarrito = localStorage.getItem('cart');
+  // console.log(productosEnCarrito);
 
-}
+  const totalProduct = (id) => {
+    
+  }
+  
+  
+  const updateCart = () => {
+    renderCartItems();
+    // renderTotal();
+  }
+
 
 const renderCartItems = () => {
-  productsInCart.innerHTML="";
-  cart.forEach((item) => {
+  productsInCart.innerHTML = "";
+  cartItems.map((item) => {
     productsInCart.innerHTML += `
-    <div class="">
-      <img class="image" src="./images/${item.img}">
-      <h4>${item.nombre}</h4>
+      <div class="cartItems">
+        <div class="itemInfo">
+          <h4>${item.nombre}</h4>
+        </div>
+        <div class="itemPrice">
+          Total: $${item.precio * item.inCart}
+        </div>
+        <div class="units">
+          <div class="btn minus" onclick="changeNumberOfUnits('minus',${item.id})">-</div>
+          <div> Cantidad: ${item.inCart} </div>
+          <div class="btn plus" onclick="changeNumberOfUnits('plus',${item.id})">+</div>
+        </div>
       </div>
-      <div class="">
-        <small>Cantidad: ${item.inCart}</small>
-      </div>
-      <div class="">
-        <small>Precio: ${item.inCart}</small>
-      </div>
-    `
-  })
+    `;
+  });
+};
+
+const changeNumberOfUnits = (action,id) => {
+  cart = localStorage.getItem("cart");
+  cart = JSON.parse(cart);
+
+  cart.map((item) => {
+    let numberOfUnits = item.inCart;
+
+
+
+    if(item.id === id){
+      if(action === "minus"){
+        numberOfUnits--;
+      }else if(action === "plus"){
+        numberOfUnits++;
+      }
+    }
+    console.log(numberOfUnits);
+    return{
+      ...item,
+      inCart: numberOfUnits,
+    };
+  });
+  console.log(cart);
+  // localStorage.setItem('cart', JSON.stringify(cart));
+  updateCart();
 }
 
 renderCartItems();
+
