@@ -14,7 +14,7 @@ const products = [
     price: 120,
     instock: 43,
     description: "Empanadas de Carne",
-    imgSrc: "./img/t2.png",
+    imgSrc: "./img/empanadas.jpg",
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ const products = [
     instock: 10,
     description:
       "Nuggets de pollo",
-    imgSrc: "./img/t3.png",
+    imgSrc: "./img/nuggets.jpg",
   },
   {
     id: 3,
@@ -32,7 +32,7 @@ const products = [
     instock: 5,
     description:
       "Tarta de Jamon y Queso",
-    imgSrc: "./img/t4.png",
+    imgSrc: "./img/tarta.png",
   },
   {
     id: 4,
@@ -41,7 +41,7 @@ const products = [
     instock: 4,
     description:
       "Bombones",
-    imgSrc: "./img/t5.png",
+    imgSrc: "./img/franui.jpg",
   },
   {
     id: 5,
@@ -50,6 +50,6 @@ const products = [
     instock: 40,
     description:
       "Cervesita",
-    imgSrc: "./img/t6.png",
+    imgSrc: "./img/cerveza.png",
   },
 ];

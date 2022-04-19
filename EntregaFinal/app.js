@@ -1,10 +1,12 @@
-// SELECT ELEMENTS
+
+
+// Selecciono los div para utilizar DOM
 const productsEl = document.querySelector(".products");
 const cartItemsEl = document.querySelector(".cart-items");
 const subtotalEl = document.querySelector(".subtotal");
 const totalItemsInCartEl = document.querySelector(".total-items-in-cart");
 
-// RENDER PRODUCTS
+// Muestro los productos
 function renderProdcuts() {
   products.forEach((product) => {
     productsEl.innerHTML += `
@@ -37,9 +39,9 @@ renderProdcuts();
 let cart = JSON.parse(localStorage.getItem("CART")) || [];
 updateCart();
 
-// ADD TO CART
+// Agregar al carrito
 function addToCart(id) {
-  // check if prodcut already exist in cart
+  // Me fijo si existe el producto en el carrito
   if (cart.some((item) => item.id === id)) {
     changeNumberOfUnits("plus", id);
   } else {
@@ -59,11 +61,11 @@ function updateCart() {
   renderCartItems();
   renderSubtotal();
 
-  // save cart to local storage
+  // guardo en localstorage
   localStorage.setItem("CART", JSON.stringify(cart));
 }
 
-// calculate and render subtotal
+// calculo y muestro el subtotal
 function renderSubtotal() {
   let totalPrice = 0,
     totalItems = 0;
@@ -77,9 +79,9 @@ function renderSubtotal() {
   totalItemsInCartEl.innerHTML = totalItems;
 }
 
-// render cart items
+// muestro los productos en el carrito
 function renderCartItems() {
-  cartItemsEl.innerHTML = ""; // clear cart element
+  cartItemsEl.innerHTML = ""; 
   cart.forEach((item) => {
     cartItemsEl.innerHTML += `
         <div class="cart-item">
@@ -100,14 +102,14 @@ function renderCartItems() {
   });
 }
 
-// remove item from cart
+// eliminar item del carrito
 function removeItemFromCart(id) {
   cart = cart.filter((item) => item.id !== id);
 
   updateCart();
 }
 
-// change number of units for an item
+// modifico cantidades en el carrito
 function changeNumberOfUnits(action, id) {
   cart = cart.map((item) => {
     let numberOfUnits = item.numberOfUnits;

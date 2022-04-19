@@ -1,35 +1,50 @@
 [
     {
+      "id": 0,
+      "name": "Pizza",
+      "price": 500,
+      "instock": 100,
+      "description": "Pizza de muzarella",
+      "imgSrc": "./img/pizza.jpg"
+    },
+    {
       "id": 1,
-      "nombre": "Pizza",
-      "precio": 500,
-      "inCart": 0,
-      "img": "pizza.jpg",
-      "estado": true
+      "name": "Empanada",
+      "price": 120,
+      "instock": 43,
+      "description": "Empanadas de Carne",
+      "imgSrc": "./img/empanadas.jpg"
     },
     {
       "id": 2,
-      "nombre": "Empanadas",
-      "precio": 100,
-      "inCart": 0,
-      "img": "empanadas.jpg",
-      "estado": true
+      "name": "Nuggets",
+      "price": 40,
+      "instock": 10,
+      "description":"Nuggets de pollo",
+      "imgSrc": "./img/nuggets.jpg"
     },
     {
       "id": 3,
-      "nombre": "Nuggets",
-      "precio": 50,
-      "inCart": 0,
-      "img": "nuggets.jpg",
-      "estado": true
+      "name": "Tarta",
+      "price": 600,
+      "instock": 5,
+      "description":"Tarta de Jamon y Queso",
+      "imgSrc": "./img/tarta.png"
     },
     {
       "id": 4,
-      "nombre": "Franui",
-      "precio": 400,
-      "inCart": 0,
-      "img": "franui.jpg",
-      "estado": true
+      "name": "Franui",
+      "price": 450,
+      "instock": 4,
+      "description":"Bombones",
+      "imgSrc": "./img/franui.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Cerveza",
+      "price": 180,
+      "instock": 40,
+      "description":  "Cervesita",
+      "imgSrc": "./img/cerveza.png"
     }
   ]
-  
