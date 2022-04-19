@@ -1,4 +1,4 @@
-
+products = [];
 
 // Selecciono los div para utilizar DOM
 const productsEl = document.querySelector(".products");
@@ -22,9 +22,6 @@ function renderProdcuts() {
                             ${product.description}
                         </p>
                     </div>
-                    <div class="add-to-wishlist">
-                        <img src="./icons/heart.png" alt="add to wish list">
-                    </div>
                     <div class="add-to-cart" onclick="addToCart(${product.id})">
                         <img src="./icons/bag-plus.png" alt="add to cart">
                     </div>
@@ -33,7 +30,24 @@ function renderProdcuts() {
         `;
   });
 }
-renderProdcuts();
+
+const getData = async () => {
+  try {
+    const res = await fetch(`./products.json`);
+    const data = await res.json();
+    products = data; //Agrego los datos del json en un array de productos
+
+    //Muestro los productos
+    renderProdcuts();
+
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+//Levanto la info del JSON
+getData();
+
 
 // cart array
 let cart = JSON.parse(localStorage.getItem("CART")) || [];
