@@ -19,7 +19,7 @@
     "id": 2,
     "name": "Nuggets",
     "price": 40,
-    "instock": 10,
+    "instock": 1000,
     "description": "Nuggets de pollo",
     "imgSrc": "./img/nuggets.jpg"
   },
@@ -27,7 +27,7 @@
     "id": 3,
     "name": "Tarta",
     "price": 600,
-    "instock": 5,
+    "instock": 50,
     "description": "Tarta de Jamon y Queso",
     "imgSrc": "./img/tarta.png"
   },
@@ -35,7 +35,7 @@
     "id": 4,
     "name": "Franui",
     "price": 450,
-    "instock": 4,
+    "instock": 5,
     "description": "Bombones",
     "imgSrc": "./img/franui.jpg"
   },

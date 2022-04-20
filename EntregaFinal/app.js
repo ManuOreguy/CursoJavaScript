@@ -5,6 +5,7 @@ const productsEl = document.querySelector(".products");
 const cartItemsEl = document.querySelector(".cart-items");
 const subtotalEl = document.querySelector(".subtotal");
 const totalItemsInCartEl = document.querySelector(".total-items-in-cart");
+const checkoutEl = document.querySelector(".checkout");
 
 // Muestro los productos
 function renderProdcuts() {
@@ -144,3 +145,24 @@ function changeNumberOfUnits(action, id) {
 
   updateCart();
 }
+
+//boton finalizar compra
+function checkout() {
+    checkoutEl.innerHTML += `
+    <div onclick="finishSale()">Finalizar Compra</div>
+        `;
+}
+
+const finishSale = () => {
+  localStorage.clear();
+
+  Swal.fire(
+    'Gracias por comprar!',
+    '',
+    'success'
+  )
+
+  setTimeout(location.reload.bind(location), 1000);
+}
+
+checkout();
