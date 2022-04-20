@@ -66,6 +66,12 @@ function addToCart(id) {
       ...item,
       numberOfUnits: 1,
     });
+
+    Swal.fire(
+      'Producto nuevo agregado al carrito!',
+      '',
+      'success'
+    )
   }
 
   updateCart();
@@ -156,13 +162,26 @@ function checkout() {
 const finishSale = () => {
   localStorage.clear();
 
-  Swal.fire(
-    'Gracias por comprar!',
-    '',
-    'success'
-  )
+  Swal.fire({
+    title: 'Finalizar compra?',
+    text: "",
+    icon: 'question',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Si'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire(
+        'Compra realizada!',
+        '',
+        'success'
+      )
 
-  setTimeout(location.reload.bind(location), 1000);
+      setTimeout(location.reload.bind(location), 1500);
+    }
+  })
+
 }
 
 checkout();
